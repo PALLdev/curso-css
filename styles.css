@@ -1,0 +1,142 @@
+/*      CLASE 2.9 
+
+Selectores con operadores */
+/* 
+    * = Selector universal (Selecciona y aplica propiedades a todos los elementos, se utiliza para algunos "hacks" muy especificos. EJ Boxmodel.  No es recomendado su uso ya que normalizar es una mejor opción.)
+    > = Hijo directo (Selecciona y aplica propiedades especificamente al hijo de una etiqueta)
+    + = Hermano siguiente (Se usa para seleccionar un unico elemento que sea hermano de otro (osea la misma indentacion) y aplicarle propiedades)
+    ~ = Hermanos siguientes (Selecciona y aplica estilo a todos los hermanos que siguen despues de un elemento)
+*/
+
+/* Ayudan a crear selectores compuestos pero con una relacion mas especifica */
+
+/* EJ SELECTOR UNIVERSAL (todo toma el color naranjo)
+* {
+    color: orangered;
+} 
+*/
+
+/* EJ HIJO DIRECTO (cambia a color azul y fondo cafe todo span que sea hijo DIRECTO de un h1)
+h1 > span {
+    color: blue;
+    background: peru;
+} 
+*/
+
+/* OPERADOR HERMANO SIGUENTE (singular)
+ si en html tengo     <h1>Este es un <span>titulo</span></h1>
+                        <div>
+                            <h1>Este es otro titulo</h1>
+                        </div>
+                        <div>
+                            <h1>Este es otro titulo</h1>
+                        </div> 
+Si quiero aplicar estilos solo al primer div puedo utilizar HERMANO SIGUIENTE para dar estilo solo al div que es hermano siguiente del h1
+En este ejemplo se haria un borde solo en el primer div, ya que ese es el hermano siguiente de h1
+Aplica un borde a todo div que tenga como hermano anterior un h1
+*/
+
+/* h1 + div {
+    border: 1px solid;
+} */
+
+/* OPERADOR HERMANOS SIGUIENTES (plural)
+Aplicaria estilos a todos los hermanos div que sigan a un h1, incluso si hay alguna otra etiqueta hermana en medio, ej  
+<h1> </h1>
+<div> </div>
+<p> </p>
+<div> </div> 
+Aplicaria estilo a ambos div ya que ambos son hermanos de h1, y el p no tomaria estilo
+Seleccionaria todos los div que sigan a un hermano h1
+*/
+
+/* h1 ~ div {
+    background: pink;
+} */
+
+
+            /* CLASE 2.10 
+Selectores de atributo: Seleccionar por nombre de atributo html y valor  o solo el nombre del atributo html
+Usan []
+Podria escribirse: 
+[attr="value"] {}
+[attr] {}
+*/
+/* [type="text"] {
+    border: 1px solid red;
+}
+
+[type] {
+    background: purple;
+} */
+
+
+/*              CLASE 2.11
+
+Selectores de atributo con comodines: Para seleccionar un elemento que tenga cierto atributo y su valor comienze, termine o contenga algun texto o caracter en epecifico
+Se escriben:
+[attr^="value"] {}  Comienza con    
+EJ si el valor de atributo type en el html comienza con sub, pone un fondo verde
+*/ 
+/* [type^="sub"] {
+    background: green;
+} */
+
+/* [attr$="value"] {} Termina con 
+EJ si el valor del atributo href de la etiqueta <a> de mi html termina con .mp4, ponle un fondo celeste
+*/
+/* a[href$=".mp4"] {
+    background: lightblue;
+} */
+
+/* [attr*="value"] {}  Contiene 
+EJ si el valor del atributo href de la etiqueta <a> de mi html contiene eo, 
+*/
+/* a[href*="eo"] {
+    background: cornflowerblue;
+    color: white;
+} */
+
+
+        /* CLASE 4.1: BOX MODEL 
+        
+Layout model: Ordenar como y donde va cada cosa que aparece en pantalla
+    Tipos: (especificaciones para armar tu layout)
+        - Box Model
+        - Position
+        - Flexbox
+        - CSS grid       
+        
+Unidades de longitud:
+    Pixeles (px)
+    em (% del fontsize actual del elemento)
+    rem (% del fontsize de body (tamaño base del documento))
+
+    BOX MODEL (modelo de caja)
+        Todos los elemntos html son rectangulos, no existen otras formas. Se pueden hacer otras formas pero seria una caja editada para que se vea como ej un circulo.
+        El navegador debe medir cuanto mide cada caja y cuanto se separa de la siguiente.
+        - Dos tipos de cajas o elementos
+            * Block (bloque)
+                - Tienen ancho (width) y alto (height)
+                - Crean una nueva linea (reserva el espacio si el width es menor al 100% )
+                - Ocupa todo el width disponible (una linea completa)
+                - EJ: h1, p, etc
+            * Inline (en linea) 
+                - Son los elementos o etiquetas que van dentro del texto EJ: span, a, inputs, img, etc     
+                - Ocupan solo el espacio necesario para su contenido, se ponen (aparecen) al lado
+                - No tienen dimensiones (ancho, alto) a excepcion de las imagenes
+    */
+
+    h1 {
+        background: yellow;
+        width: 300px;
+        height: 100px;
+    }
+
+    p {
+        background: tomato;
+    }
+
+    span {
+        background: turquoise;
+    }
